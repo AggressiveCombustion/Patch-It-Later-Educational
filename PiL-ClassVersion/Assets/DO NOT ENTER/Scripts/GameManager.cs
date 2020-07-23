@@ -89,7 +89,14 @@ public class GameManager : MonoBehaviour {
 
     void GoToNextLevel()
     {
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            ReturnToMainMenu();
+            return;
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         //RestartLevel();
     }
 

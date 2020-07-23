@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitleScreen : MonoBehaviour {
 
     public PanelFade panel;
+    bool musicOn = false;
+    public Text musicText;
 
 	// Use this for initialization
 	void Start () {
         //panel.FadeIn();
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        musicText.text = "MUSIC: " + (musicOn ? "ON" : "OFF");
+    }
 
     public void StartGame()
     {
@@ -45,5 +49,12 @@ public class TitleScreen : MonoBehaviour {
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void ToggleMusic()
+    {
+        musicOn = !musicOn;
+
+        GameManager.instance.bgm = musicOn ? 3 : 0;
     }
 }

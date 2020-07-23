@@ -16,7 +16,7 @@ public class LevelText : MonoBehaviour {
 	void Update () {
 		foreach(Text t in texts)
         {
-            t.text = message;
+            t.text = message.ToUpper();
         }
 	}
 }
